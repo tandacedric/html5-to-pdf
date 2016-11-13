@@ -19,14 +19,16 @@
     </section>
 
     <section class="main-content">
-      <p><a href="https://travis-ci.org/peterdemartini/html5-to-pdf"><img src="https://travis-ci.org/peterdemartini/html5-to-pdf.svg?branch=master" alt="Build Status"></a></p>
+      <p><a href="https://david-dm.org/peterdemartini/html5-to-pdf"><img src="http://img.shields.io/david/peterdemartini/html5-to-pdf.svg?style=flat" alt="Dependency status"></a>
+<a href="https://david-dm.org/peterdemartini/html5-to-pdf#info=devDependencies"><img src="http://img.shields.io/david/dev/peterdemartini/html5-to-pdf.svg?style=flat" alt="devDependency Status"></a>
+<a href="https://travis-ci.org/peterdemartini/html5-to-pdf"><img src="https://travis-ci.org/peterdemartini/html5-to-pdf.svg?branch=master" alt="Build Status"></a></p>
 
 <p>Node module that converts HTML files to PDFs.</p>
 
-<p>The PDF looks great because it is styled by HTML5 Boilerplate or Bootstrap. What? - Yes! HTML is pushed into the HTML5 template <code>index.html</code>. Phantomjs renders the page and saves it to a PDF. You can even customize the style of the PDF by passing an optional path to your CSS <em>and</em> you can pre-process your html file before it is converted to a PDF by passing in a pre-processing function, for creating templates.</p>
+<p>The PDF looks great because it is styled by HTML5 Boilerplate or Bootstrap. What? - Yes! HTML is pushed into the HTML5 template <code>index.html</code>. Electron renders the page and saves it to a PDF. You can customize the page by adding custom CSS and JS assets.</p>
 
 <h1>
-<a id="v2-breaking-changes" class="anchor" href="#v2-breaking-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>v2 (BREAKING CHANGES)</h1>
+<a id="v200-breaking-changes" class="anchor" href="#v200-breaking-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>v2.0.0 (BREAKING CHANGES)</h1>
 
 <ul>
 <li>Uses <a href="https://github.com/segmentio/nightmare">Nightmare</a> - an Electron based headless browser.</li>
@@ -40,7 +42,7 @@
 <div class="highlight highlight-source-shell"><pre>npm install --save html5-to-pdf</pre></div>
 
 <h2>
-<a id="example-usage" class="anchor" href="#example-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example usage</h2>
+<a id="output-to-file-example-usage" class="anchor" href="#output-to-file-example-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Output to File Example usage</h2>
 
 <div class="highlight highlight-source-coffee"><pre><span class="pl-v">HTMLToPDF</span> <span class="pl-k">=</span> <span class="pl-c1">require</span> <span class="pl-s"><span class="pl-pds">'</span>html5-to-pdf<span class="pl-pds">'</span></span>
 <span class="pl-v">htmlToPDF</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">HTMLToPDF</span> {
@@ -50,6 +52,19 @@
 
 htmlToPDF.build <span class="pl-smi">(error)</span> <span class="pl-k">=&gt;</span>
   <span class="pl-k">throw</span> error <span class="pl-k">if</span> error<span class="pl-k">?</span>
+  <span class="pl-c"># Done!</span></pre></div>
+
+<h2>
+<a id="output-to-buffer-example-usage" class="anchor" href="#output-to-buffer-example-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Output to Buffer Example usage</h2>
+
+<div class="highlight highlight-source-coffee"><pre><span class="pl-v">HTMLToPDF</span> <span class="pl-k">=</span> <span class="pl-c1">require</span> <span class="pl-s"><span class="pl-pds">'</span>html5-to-pdf<span class="pl-pds">'</span></span>
+<span class="pl-v">htmlToPDF</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">HTMLToPDF</span> {
+  <span class="pl-v">inputPath</span>: <span class="pl-s"><span class="pl-pds">'</span>./path/to/input.html<span class="pl-pds">'</span></span>
+}
+
+htmlToPDF.build <span class="pl-smi">(error, buf)</span> <span class="pl-k">=&gt;</span>
+  <span class="pl-k">throw</span> error <span class="pl-k">if</span> error<span class="pl-k">?</span>
+  <span class="pl-c"># buf is the PDF as buffer</span>
   <span class="pl-c"># Done!</span></pre></div>
 
 <h3>
@@ -75,8 +90,7 @@ Required: true</p>
 <h4>
 <a id="optionsoutputpath" class="anchor" href="#optionsoutputpath" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>options.outputPath</h4>
 
-<p>Type: <code>String</code>
-Required: true</p>
+<p>Type: <code>String</code></p>
 
 <p>Path to the output pdf file.</p>
 
@@ -111,7 +125,7 @@ Default value: <code>A4</code></p>
 <p>Type: <code>Boolean</code>
 Default value: <code>false</code></p>
 
-<p>true for landscape, false for portait.</p>
+<p>true for landscape, false for portrait.</p>
 
 <h4>
 <a id="optionsoptionsmarginstype" class="anchor" href="#optionsoptionsmarginstype" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>options.options.marginsType</h4>
@@ -162,7 +176,7 @@ Default value: the <code>html5-to-pdf/templates/#{options.template}</code></p>
 
 <p>Type: <code>String</code></p>
 
-<p>The url to use for rendering the html. If this is set, this will be used for serving up the html. This will override <code>options.templatePath</code> and <code>options.template</code> </p>
+<p>The url to use for rendering the html. If this is set, this will be used for serving up the html. This will override <code>options.templatePath</code> and <code>options.template</code></p>
 
 <h2>
 <a id="cli-interface" class="anchor" href="#cli-interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CLI interface</h2>
@@ -177,20 +191,21 @@ Default value: the <code>html5-to-pdf/templates/#{options.template}</code></p>
 <h3>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
 
-<div class="highlight highlight-source-shell"><pre>Usage: <span class="pl-c1">command</span> [options] <span class="pl-k">&lt;</span>path/to/html-file-path<span class="pl-k">&gt;</span>
+<div class="highlight highlight-source-shell"><pre>
+  Usage: <span class="pl-c1">command</span> [options] <span class="pl-k">&lt;</span>path/to/html-file-path<span class="pl-k">&gt;</span>
 
-Options:
-
-  -h, --help                   output usage information
-  -V, --version                output the version number
-  -i --include <span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span>..<span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span>  path to either a javascript asset, or a css asset
-  --page-size [size]           <span class="pl-s"><span class="pl-pds">'</span>A3<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>A4<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Legal<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Letter<span class="pl-pds">'</span></span> or <span class="pl-s"><span class="pl-pds">'</span>Tabloid<span class="pl-pds">'</span></span>
-  --margin-type [n]            Specify the <span class="pl-c1">type</span> of margins to use: 0 - default, 1 - none, 2 - minimum
-  --landscape                  If <span class="pl-c1">set</span> it will change orientation to landscape from portriat
-  --print-background           Whether to print CSS backgrounds
-  -t --template [template]     The template to used. Defaults to html5bp.
-  -d --render-delay [millis]   Delay before rendering the PDF (give HTML and CSS a chance to load)
-  -o --output <span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span>           Path of where to save the PDF</pre></div>
+  Options:
+    -h, --help                                  output usage information
+    -V, --version                               output the version number
+    -i --include <span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span>..<span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span>                 path to either a javascript asset, or a css asset
+    --page-size [size]                          <span class="pl-s"><span class="pl-pds">'</span>A3<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>A4<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Legal<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Letter<span class="pl-pds">'</span></span> or <span class="pl-s"><span class="pl-pds">'</span>Tabloid<span class="pl-pds">'</span></span>
+    --margin-type [n]                           Specify the <span class="pl-c1">type</span> of margins to use: 0 - default, 1 - none, 2 - minimum
+    --landscape                                 If <span class="pl-c1">set</span> it will change orientation to landscape from portrait
+    --print-background                          Whether to print CSS backgrounds
+    -t --template [template]                    The template to used. Defaults to html5bp.
+    --template-path [/path/to/template/folder]  Specifies the template folder path <span class="pl-k">for</span> static assets, this will override template.
+    -d --render-delay [milli-seconds]           Delay before rendering the PDF (give HTML and CSS a chance to load)
+    -o --output <span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span>                          Path of where to save the PDF</pre></div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/peterdemartini/html5-to-pdf">HTML5-to-pdf</a> is maintained by <a href="https://github.com/peterdemartini">peterdemartini</a>.</span>
