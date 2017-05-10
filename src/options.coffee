@@ -20,9 +20,11 @@ class Options
       throw new Error 'Missing inputPath or inputBody'
     defaults =
       options:
+        host: 'localhost'
         landscape: false
         pageSize: 'A4'
         marginsType: 0
+        port: 0
         printBackground: false
       renderDelay: 0
       template: 'html5bp'
