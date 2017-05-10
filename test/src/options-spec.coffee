@@ -19,9 +19,11 @@ describe 'Options', ->
 
       expect(@sut.options).to.deep.equal {
         options:
+          host: 'localhost'
           landscape: true
           pageSize: 'A4'
           marginsType: 0
+          port: 0
           printBackground: false
         inputBody: 'input-body'
         outputPath: path.join(__dirname, 'output')
