@@ -23,7 +23,9 @@ class Options
         landscape: false
         pageSize: 'A4'
         marginsType: 0
-        printBackground: false
+        printBackground: false,
+        host: 'localhost',
+        port: 0
       renderDelay: 0
       template: 'html5bp'
 

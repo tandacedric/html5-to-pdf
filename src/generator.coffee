@@ -52,9 +52,10 @@ class Generator
     return callback null, @options.get('templateUrl') if @options.get('templateUrl')?
     app = express()
     app.use express.static(@options.get('templatePath'))
-    @_server = app.listen 0, (error) =>
+    options = @options.get('options')
+    @_server = app.listen options.port, (error) =>
       return callback error, null if error?
       enableDestroy @_server
-      callback null, "http://localhost:#{@_server.address().port}"
+      callback null, "http://#{options.host}:#{@_server.address().port}"
 
 module.exports = Generator
