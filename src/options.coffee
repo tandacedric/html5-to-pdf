@@ -1,5 +1,5 @@
 _       = require 'lodash'
-fs      = require 'fs-extra'
+fs      = require 'fs'
 path    = require 'path'
 debug   = require('debug')('html5-to-pdf:options')
 
