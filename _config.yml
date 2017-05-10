@@ -1,0 +1,8 @@
+title: HTML5-to-pdf
+description: HTML to PDF converter based on markdown-to-pdf
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
