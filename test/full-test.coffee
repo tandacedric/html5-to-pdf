@@ -1,3 +1,4 @@
+{describe,it,expect,beforeEach} = global
 HTMLToPDF = require '../'
 fs        = require 'fs-extra'
 path      = require 'path'

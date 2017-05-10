@@ -1,5 +1,5 @@
+{describe,it,expect,beforeEach} = global
 Options  = require '../../src/options'
-_        = require 'lodash'
 path     = require 'path'
 
 describe 'Options', ->
@@ -23,11 +23,11 @@ describe 'Options', ->
           landscape: true
           pageSize: 'A4'
           marginsType: 0
-          port: 0
+          port: undefined
           printBackground: false
         inputBody: 'input-body'
         outputPath: path.join(__dirname, 'output')
-        renderDelay: 0
+        renderDelay: 100
         template: 'html5bp'
         templatePath: templatePath 'html5bp'
         include: [

@@ -24,9 +24,9 @@ class Options
         landscape: false
         pageSize: 'A4'
         marginsType: 0
-        port: 0
+        port: undefined
         printBackground: false
-      renderDelay: 0
+      renderDelay: 100
       template: 'html5bp'
 
     @options = _.defaultsDeep options, defaults
