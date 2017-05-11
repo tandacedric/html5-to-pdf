@@ -3,7 +3,7 @@ HTMLToPDF = require '../'
 fs        = require 'fs-extra'
 path      = require 'path'
 
-describe 'Integration', ->
+describe 'Generate PDF', ->
   beforeEach  ->
     @outputPath = path.join __dirname, '..', 'tmp', 'test.pdf'
     fs.mkdirpSync path.dirname @outputPath

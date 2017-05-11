@@ -24,7 +24,7 @@ class Options
         landscape: false
         pageSize: 'A4'
         marginsType: 0
-        port: undefined
+        port: 0
         printBackground: false
       renderDelay: 100
       template: 'html5bp'

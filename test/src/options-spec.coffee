@@ -3,7 +3,7 @@ Options  = require '../../src/options'
 path     = require 'path'
 
 describe 'Options', ->
-  describe 'when called with the requirments', ->
+  describe 'when called with the requirements', ->
     beforeEach ->
       @sut = new Options {
         inputBody: 'input-body'
@@ -23,7 +23,7 @@ describe 'Options', ->
           landscape: true
           pageSize: 'A4'
           marginsType: 0
-          port: undefined
+          port: 0
           printBackground: false
         inputBody: 'input-body'
         outputPath: path.join(__dirname, 'output')

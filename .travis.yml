@@ -4,8 +4,12 @@ os:
 language: node_js
 node_js:
 - '6'
+- '7'
 matrix:
   fast_finish: true
+branches:
+  only:
+    - '/^v[0-9]/'
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start &
