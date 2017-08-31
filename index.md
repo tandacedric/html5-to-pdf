@@ -19,34 +19,39 @@ Getting started
 npm install --save html5-to-pdf
 ```
 
+Out in the Wild
+--------------
+
+**CV:** [CV](https://github.com/dwjohnston/cv/)
+
 Output to File Example usage
 --------------
 
-```coffee
-HTMLToPDF = require 'html5-to-pdf'
-htmlToPDF = new HTMLToPDF {
+```javascript
+const HTMLToPDF = require('html5-to-pdf')
+const htmlToPDF = new HTMLToPDF({
   inputPath: './path/to/input.html',
   outputPath: './path/to/output.pdf',
-}
-
-htmlToPDF.build (error) =>
-  throw error if error?
-  # Done!
+})
+htmlToPDF.build((error) => {
+  if(error) throw error
+})
 ```
 
 Output to Buffer Example usage
 --------------
 
-```coffee
-HTMLToPDF = require 'html5-to-pdf'
-htmlToPDF = new HTMLToPDF {
-  inputPath: './path/to/input.html'
-}
-
-htmlToPDF.build (error, buf) =>
-  throw error if error?
+```javascript
+const HTMLToPDF = require('html5-to-pdf')
+const htmlToPDF = new HTMLToPDF({
+  inputPath: './path/to/input.html',
+  outputPath: './path/to/output.pdf',
+})
+htmlToPDF.build((error, buf) => {
+  if(error) throw error
   # buf is the PDF as buffer
   # Done!
+})
 ```
 
 ---
