@@ -19,34 +19,39 @@ Getting started
 npm install --save html5-to-pdf
 ```
 
+Out in the Wild
+--------------
+
+**CV:** [CV](https://github.com/dwjohnston/cv/)
+
 Output to File Example usage
 --------------
 
-```coffee
-HTMLToPDF = require 'html5-to-pdf'
-htmlToPDF = new HTMLToPDF {
+```javascript
+const HTMLToPDF = require('html5-to-pdf')
+const htmlToPDF = new HTMLToPDF({
   inputPath: './path/to/input.html',
   outputPath: './path/to/output.pdf',
-}
-
-htmlToPDF.build (error) =>
-  throw error if error?
-  # Done!
+})
+htmlToPDF.build((error) => {
+  if(error) throw error
+})
 ```
 
 Output to Buffer Example usage
 --------------
 
-```coffee
-HTMLToPDF = require 'html5-to-pdf'
-htmlToPDF = new HTMLToPDF {
-  inputPath: './path/to/input.html'
-}
-
-htmlToPDF.build (error, buf) =>
-  throw error if error?
+```javascript
+const HTMLToPDF = require('html5-to-pdf')
+const htmlToPDF = new HTMLToPDF({
+  inputPath: './path/to/input.html',
+  outputPath: './path/to/output.pdf',
+})
+htmlToPDF.build((error, buf) => {
+  if(error) throw error
   # buf is the PDF as buffer
   # Done!
+})
 ```
 
 ---
@@ -189,7 +194,7 @@ You can instead use [Xvfb](https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1
 #### Installation:
 
     apt-get install -y libgtk2.0-0 libgconf-2-4 libasound2 libxtst6 libxss1 libnss3 xvfb
-    
+
 (might need sudo)
 #### Usage:
 

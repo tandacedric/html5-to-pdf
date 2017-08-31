@@ -4,7 +4,7 @@ commander = require 'commander'
 colors    = require 'colors/safe'
 
 HTMLToPDF   = require './'
-packageJSON = require './package.json'
+packageJSON = require '../package.json'
 
 class Command
   printMissing: (message) =>
