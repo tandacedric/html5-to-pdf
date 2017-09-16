@@ -12,7 +12,13 @@
     "type": "git",
     "url": "git@github.com:peterdemartini/html5-to-pdf.git"
   },
-  "keywords": ["html5", "pdf", "convert", "template", "generator"],
+  "keywords": [
+    "html5",
+    "pdf",
+    "convert",
+    "template",
+    "generator"
+  ],
   "author": "Peter DeMartini",
   "homepage": "https://github.com/peterdemartini/html5-to-pdf",
   "licenses": [
@@ -33,9 +39,9 @@
   },
   "devDependencies": {
     "coffee-script": "^1.12.7",
-    "chai": "^4.1.1",
-    "fs-extra": "^4.0.1",
-    "mocha": "^3.5.0",
+    "chai": "^4.1.2",
+    "fs-extra": "^4.0.2",
+    "mocha": "^3.5.3",
     "sinon": "^3.2.1",
     "sinon-chai": "^2.13.0"
   },
