@@ -1,6 +1,6 @@
 {
   "name": "html5-to-pdf",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "description": "HTML5 to PDF converter",
   "main": "dist/index.js",
   "scripts": {
@@ -12,13 +12,7 @@
     "type": "git",
     "url": "git@github.com:peterdemartini/html5-to-pdf.git"
   },
-  "keywords": [
-    "html5",
-    "pdf",
-    "convert",
-    "template",
-    "generator"
-  ],
+  "keywords": ["html5", "pdf", "convert", "template", "generator"],
   "author": "Peter DeMartini",
   "homepage": "https://github.com/peterdemartini/html5-to-pdf",
   "licenses": [
