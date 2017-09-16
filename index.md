@@ -15,14 +15,20 @@ The PDF looks great because it is styled by HTML5 Boilerplate or Bootstrap. What
 Getting started
 ---------------
 
-```sh
-npm install --save html5-to-pdf
-```
+`npm install --save html5-to-pdf`
+
+or
+
+`npm install --global html5-to-pdf`
+
 
 Out in the Wild
 --------------
 
-**CV:** [CV](https://github.com/dwjohnston/cv/)
+
+### [CV](https://github.com/dwjohnston/cv/)
+
+Uses `webpack` and `webpack-dev-server` to let you see your changes live, and has the option to publish to HTML or PDF.
 
 Output to File Example usage
 --------------
