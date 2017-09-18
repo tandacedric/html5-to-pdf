@@ -15,12 +15,14 @@ before_script:
 - sh -e /etc/init.d/xvfb start &
 - sleep 3
 before_deploy:
-- yarn build
+- npm run build
 deploy:
   provider: npm
-  email: peter@superlativecode.com
+  email: thepeterdemartini@gmail.com
   api_key:
     secure: VNF2ar2dX87GOnMaP+PUOsB7dRt7eoOmOsA2F3ML1IIq92Mafxtub99B7On6IWemtUBMSXhml6uT1uYxJtuJrvonKxbdlNNfrBzIqCduJCKxnRLDECPGNkBjeXfIRMWv2ibhaK9yzz8tqybq8ave6kxdz1GROGONoXH1Hhwrcdo=
+  skip_cleanup: true
   on:
+    node: '8'
     tags: true
     repo: peterdemartini/html5-to-pdf
