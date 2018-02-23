@@ -2,17 +2,21 @@
   "name": "html5-to-pdf",
   "version": "2.2.9",
   "description": "HTML5 to PDF converter",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "mocha",
-    "build": "coffee --compile --output dist/ --map src/*.coffee",
-    "start": "node index.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:peterdemartini/html5-to-pdf.git"
   },
-  "keywords": ["html5", "pdf", "convert", "template", "generator"],
+  "keywords": [
+    "html5",
+    "pdf",
+    "convert",
+    "template",
+    "generator"
+  ],
   "author": "Peter DeMartini",
   "homepage": "https://github.com/peterdemartini/html5-to-pdf",
   "licenses": [
@@ -25,21 +29,20 @@
     "colors": "^1.1.2",
     "commander": "^2.11.0",
     "debug": "^3.0.1",
-    "express": "^4.15.4",
     "lodash": "^4.17.4",
-    "nightmare": "^2.10.0",
-    "server-destroy": "^1.0.1",
+    "m-server": "^1.4.0",
+    "puppeteer": "^1.1.0",
     "tmp": "^0.0.33"
   },
   "devDependencies": {
-    "coffee-script": "^1.12.7",
     "chai": "^4.1.2",
     "fs-extra": "^4.0.2",
     "mocha": "^3.5.3",
+    "prettier": "1.10.2",
     "sinon": "^3.2.1",
     "sinon-chai": "^2.13.0"
   },
   "bin": {
-    "html5-to-pdf": "./bin/command.js"
+    "html5-to-pdf": "./command.js"
   }
 }
