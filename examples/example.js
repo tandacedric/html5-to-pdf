@@ -12,9 +12,9 @@ const run = async () => {
     ],
   })
 
-  await html5ToPDF.start()
-  await html5ToPDF.build()
-  await html5ToPDF.close()
+  await html5ToPDF.start().catch(err => console.error(err))
+  await html5ToPDF.build().catch(err => console.error(err))
+  await html5ToPDF.close().catch(err => console.error(err))
   console.log("DONE")
   process.exit(0)
 }

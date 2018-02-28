@@ -31,17 +31,10 @@
     "commander": "^2.11.0",
     "debug": "^3.0.1",
     "lodash": "^4.17.4",
-    "m-server": "^1.4.0",
-    "puppeteer": "^1.1.0",
-    "tmp": "^0.0.33"
+    "puppeteer": "^1.1.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "fs-extra": "^4.0.2",
-    "mocha": "^3.5.3",
-    "prettier": "1.10.2",
-    "sinon": "^3.2.1",
-    "sinon-chai": "^2.13.0"
+    "prettier": "1.10.2"
   },
   "bin": {
     "html5-to-pdf": "./command.js"

@@ -85,9 +85,9 @@ const getOptions = () => {
 const run = async () => {
   const options = getOptions()
   const pdf = new HTML5ToPDF(options)
-  await pdf.start()
-  const buf = await pdf.build()
-  await pdf.close()
+  await pdf.start().catch(die)
+  const buf = await pdf.build().catch(die)
+  await pdf.close().catch(die)
   if (buf != null) {
     process.stdout.write(buf)
   }
