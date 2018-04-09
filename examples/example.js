@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const HTML5ToPDF = require("../lib")
 const path = require("path")
 
