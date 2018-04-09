@@ -24,14 +24,14 @@ main() {
   local output_file="$tmp_dir/basic-$RANDOM.pdf"
   mkdir -p "$tmp_dir"
 
-  $project_dir/command.js \
+  "$project_dir/command.js" \
     --template-path $template_dir \
     --include $assets_dir/basic.css,$assets_dir/custom-margin.css \
     --margin-type 2 \
     --render-delay 500 \
     $assets_dir/basic.html -o $output_file || exit 1
 
-  open $output_file
+  echo "open $output_file"
 }
 
 main "$@"
