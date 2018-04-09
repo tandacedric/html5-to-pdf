@@ -49,6 +49,10 @@ const getOptions = () => {
       "Specifies the template folder path for static assets, this will override template.",
     )
     .option(
+      "--template-url [http://localhost:8080]",
+      "Specifies the template url to use. Cannot be used with --template-path.",
+    )
+    .option(
       "-d --render-delay [milli-seconds]",
       "Delay before rendering the PDF (give HTML and CSS a chance to load)",
     )
@@ -61,7 +65,13 @@ const getOptions = () => {
     printMissing("Missing input path first argument")
   }
 
-  const { pageSize, template, templatePath, renderDelay } = commander
+  const {
+    pageSize,
+    template,
+    templatePath,
+    templateUrl,
+    renderDelay,
+  } = commander
   const printBackground = commander.printBackground
   const landscape = commander.landscape
 
@@ -71,6 +81,7 @@ const getOptions = () => {
     inputPath,
     outputPath,
     template,
+    templateUrl,
     templatePath,
     renderDelay: toNumber(renderDelay),
     include,
