@@ -29,7 +29,6 @@
     "auto-bind": "^1.2.0",
     "colors": "^1.1.2",
     "commander": "^2.11.0",
-    "debug": "^3.0.1",
     "lodash": "^4.17.4",
     "puppeteer": "^1.1.0"
   },
