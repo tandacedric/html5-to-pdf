@@ -1,6 +1,6 @@
 {
   "name": "html5-to-pdf",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "HTML5 to PDF converter",
   "main": "lib/index.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git@github.com:peterdemartini/html5-to-pdf.git"
   },
+  "license": "MIT",
   "keywords": [
     "html5",
     "pdf",
