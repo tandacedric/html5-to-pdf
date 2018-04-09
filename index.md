@@ -6,58 +6,60 @@ Node module that converts HTML files to PDFs.
 
 The PDF looks great because it is styled by HTML5 Boilerplate or Bootstrap. What? - Yes! HTML is pushed into the HTML5 template `index.html`. Electron renders the page and saves it to a PDF. You can customize the page by adding custom CSS and JS assets.
 
-# v2.0.0 (BREAKING CHANGES)
+# v3.0.0 (BREAKING CHANGES)
 
-* Uses [Nightmare](https://github.com/segmentio/nightmare) - an Electron based headless browser.
-* Simple API
-* No more streams
+* Uses [Puppeteer](https://github.com/GoogleChrome/puppeteer) in order to get more fine-grain PDF options.
+* Use async/await and ES6 - no more coffee-script
 
 Getting started
 ---------------
 
 `npm install --save html5-to-pdf`
+`yarn add html5-to-pdf`
 
 or
 
 `npm install --global html5-to-pdf`
+`yarn global add html5-to-pdf`
 
 
 Out in the Wild
 --------------
 
-
 ### [CV](https://github.com/dwjohnston/cv/)
 
 Uses `webpack` and `webpack-dev-server` to let you see your changes live, and has the option to publish to HTML or PDF.
 
-Output to File Example usage
+Output Example usage
 --------------
 
 ```javascript
-const HTMLToPDF = require('html5-to-pdf')
-const htmlToPDF = new HTMLToPDF({
-  inputPath: './path/to/input.html',
-  outputPath: './path/to/output.pdf',
-})
-htmlToPDF.build((error) => {
-  if(error) throw error
-})
-```
+const HTML5ToPDF = require("../lib")
+const path = require("path")
 
-Output to Buffer Example usage
---------------
+const run = async () => {
+  const html5ToPDF = new HTML5ToPDF({
+    inputPath: path.join(__dirname, "assets", "basic.html"),
+    outputPath: path.join(__dirname, "..", "tmp", "output.pdf"),
+    templatePath: path.join(__dirname, "templates", "basic"),
+    include: [
+      path.join(__dirname, "assets", "basic.css"),
+      path.join(__dirname, "assets", "custom-margin.css"),
+    ],
+  })
 
-```javascript
-const HTMLToPDF = require('html5-to-pdf')
-const htmlToPDF = new HTMLToPDF({
-  inputPath: './path/to/input.html',
-  outputPath: './path/to/output.pdf',
-})
-htmlToPDF.build((error, buf) => {
-  if(error) throw error
-  # buf is the PDF as buffer
-  # Done!
-})
+  await html5ToPDF.start()
+  await html5ToPDF.build()
+  await html5ToPDF.close()
+  console.log("DONE")
+  process.exit(0)
+}
+
+try {
+  run()
+} catch (error) {
+  console.error(error)
+}
 ```
 
 ---
@@ -86,11 +88,20 @@ Type: `String`
 Path to the output pdf file.
 
 #### options.include
-Type: `Array<Object>`
+Type: `Array<Object|String>`
 
-An array of objects containing a type of ['css', 'js'] and a filePath pointing to the asset.
+An array of strings or objects containing a type of `['css', 'js']` and a filePath pointing to the asset.
 
 **Example:**
+
+```javascript
+[
+  "/path/to/asset.css"
+  // ...
+]
+```
+
+or
 
 ```javascript
 [
@@ -102,32 +113,6 @@ An array of objects containing a type of ['css', 'js'] and a filePath pointing t
 ]
 ```
 
-
-#### options.options.pageSize
-Type: `String`
-Default value: `A4`
-
-'A3', 'A4', 'Legal', 'Letter' or 'Tabloid'
-
-#### options.options.landscape
-Type: `Boolean`
-Default value: `false`
-
-true for landscape, false for portrait.
-
-#### options.options.marginsType
-Type: `Number`
-Default value: `0`
-
-* 0 - default
-* 1 - none
-* 2 - minimum
-
-#### options.options.printBackground
-Type: `Boolean`
-Default value: `false`
-
-Whether to print CSS backgrounds.
 
 #### options.renderDelay
 Type: `Number`
@@ -152,6 +137,43 @@ Type: `String`
 
 The url to use for rendering the html. If this is set, this will be used for serving up the html. This will override `options.templatePath` and `options.template`
 
+#### options.pdf
+Type: `Object`
+
+This object will be passed directly to [puppeteer](https://github.com/GoogleChrome/puppeteer). The full list of options can be found [here](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions).
+
+### Legacy Options
+
+**[ DEPRECATED ]**
+
+See `options.pdf` above for pdf options. Since some of these options are converted over to work with [puppeteer](https://github.com/GoogleChrome/puppeteer), this is automatically done if `options.pdf` is left empty.
+
+#### options.options.pageSize **[COMPATIBLE]**
+Type: `String`
+Default value: `A4`
+
+'A3', 'A4', 'Legal', 'Letter' or 'Tabloid'
+
+#### options.options.landscape **[COMPATIBLE]**
+Type: `Boolean`
+Default value: `false`
+
+true for landscape, false for portrait.
+
+#### options.options.marginsType **[NOT COMPATIBLE]**
+Type: `Number`
+Default value: `0`
+
+* 0 - default
+* 1 - none
+* 2 - minimum
+
+#### options.options.printBackground **[COMPATIBLE]**
+Type: `Boolean`
+Default value: `false`
+
+Whether to print CSS backgrounds.
+
 ---
 
 CLI interface
@@ -168,29 +190,35 @@ npm install --global html5-to-pdf
 ### Usage
 
 ```sh
+Usage: html5-to-pdf [options] <path/to/html-file-path>
 
-  Usage: command [options] <path/to/html-file-path>
+Options:
 
-  Options:
-    -h, --help                                  output usage information
-    -V, --version                               output the version number
-    -i --include <path>..<path>                 path to either a javascript asset, or a css asset
-    --page-size [size]                          'A3', 'A4', 'Legal', 'Letter' or 'Tabloid'
-    --margin-type [n]                           Specify the type of margins to use: 0 - default, 1 - none, 2 - minimum
-    --landscape                                 If set it will change orientation to landscape from portrait
-    --print-background                          Whether to print CSS backgrounds
-    -t --template [template]                    The template to used. Defaults to html5bp.
-    --template-path [/path/to/template/folder]  Specifies the template folder path for static assets, this will override template.
-    -d --render-delay [milli-seconds]           Delay before rendering the PDF (give HTML and CSS a chance to load)
-    -o --output <path>                          Path of where to save the PDF
+  -V, --version                               output the version number
+  -i --include <path>..<path>                 path to either a javascript asset, or a css asset
+  --page-size [size]                          'A3', 'A4', 'Legal', 'Letter' or 'Tabloid'
+  --landscape                                 If set it will change orientation to landscape from portriat
+  --print-background                          Whether to print CSS backgrounds
+  -t --template [template]                    The template to used. Defaults to html5bp.
+  --template-path [/path/to/template/folder]  Specifies the template folder path for static assets, this will override template.
+  --template-url [http://localhost:8080]      Specifies the template url to use. Cannot be used with --template-path.
+  -d --render-delay [milli-seconds]           Delay before rendering the PDF (give HTML and CSS a chance to load)
+  -o --output <path>                          Path of where to save the PDF
+  -h, --help                                  output usage information
 ```
+
+---
+Note for running in docker
+---
+
+Refer to puppeteer [documentation](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-in-docker).
 
 ---
 Note for running headlessly on Linux
 ---
 _(like on a server without X)_:
 
-html5-to-pdf uses Nightmare, which uses Electron, which in turn relies on an X server to render the pdf.
+html5-to-pdf uses Puppeteer, which Google Chrome Headlessly, which in turn relies on an X server to render the pdf.
 If for whatever reason it can't find a running X server, it will silently fail.
 
 To fix, just run whatever display server you prefer (that's implementing X).
