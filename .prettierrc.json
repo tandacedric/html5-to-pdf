@@ -1,7 +1,0 @@
-{
-  "trailingComma": "all",
-  "bracketSpacing": true,
-  "semi": false,
-  "printWidth": 80,
-  "parser": "babylon"
-}

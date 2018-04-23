@@ -4,8 +4,6 @@ os:
 language: node_js
 node_js:
 - '9'
-matrix:
-  fast_finish: true
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start &
@@ -20,6 +18,5 @@ deploy:
     secure: VNF2ar2dX87GOnMaP+PUOsB7dRt7eoOmOsA2F3ML1IIq92Mafxtub99B7On6IWemtUBMSXhml6uT1uYxJtuJrvonKxbdlNNfrBzIqCduJCKxnRLDECPGNkBjeXfIRMWv2ibhaK9yzz8tqybq8ave6kxdz1GROGONoXH1Hhwrcdo=
   skip_cleanup: true
   on:
-    node: '8'
     tags: true
     repo: peterdemartini/html5-to-pdf

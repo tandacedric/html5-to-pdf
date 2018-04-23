@@ -1,0 +1,23 @@
+{
+  "extends": ["plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "ecmaVersion": 8
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "semi": false,
+        "printWidth": 80,
+        "parser": "babylon"
+      }
+    ],
+    "no-console": 0
+  },
+  "env": {
+    "node": true
+  }
+}

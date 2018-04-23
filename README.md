@@ -15,12 +15,10 @@ Getting started
 ---------------
 
 `npm install --save html5-to-pdf`
-`yarn add html5-to-pdf`
 
 or
 
 `npm install --global html5-to-pdf`
-`yarn global add html5-to-pdf`
 
 
 Out in the Wild

@@ -34,7 +34,10 @@
     "puppeteer": "^1.1.0"
   },
   "devDependencies": {
-    "prettier": "1.10.2"
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "^1.10.2"
   },
   "bin": {
     "html5-to-pdf": "./command.js"
