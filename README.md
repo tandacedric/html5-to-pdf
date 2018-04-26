@@ -140,6 +140,11 @@ Type: `Object`
 
 This object will be passed directly to [puppeteer](https://github.com/GoogleChrome/puppeteer). The full list of options can be found [here](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions).
 
+#### options.launchOptions
+Type: `Object`
+
+This object will be passed directly to [puppeteer](https://github.com/GoogleChrome/puppeteer). The full list of options can be found [here](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions).
+
 ### Legacy Options
 
 **[ DEPRECATED ]**
@@ -208,6 +213,14 @@ Options:
 ---
 Note for running in docker
 ---
+
+See [Example Dockerfile](/examples/Dockerfile). Make sure to container with
+`--cap-add=SYS_ADMIN`.
+
+```sh
+docker build -t local/html5-to-pdf-example -f examples/Dockerfile .
+docker run --rm -i --cap-add=SYS_ADMIN local/html5-to-pdf-example
+```
 
 Refer to puppeteer [documentation](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-in-docker).
 
