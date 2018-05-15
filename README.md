@@ -10,6 +10,7 @@ The PDF looks great because it is styled by HTML5 Boilerplate or Bootstrap. What
 
 * Uses [Puppeteer](https://github.com/GoogleChrome/puppeteer) in order to get more fine-grain PDF options.
 * Use async/await and ES6 - no more coffee-script
+* For migration in your current code, consider using the new `async` functionality in your existing promise chains (see example)
 
 Getting started
 ---------------
@@ -28,7 +29,7 @@ Out in the Wild
 
 Uses `webpack` and `webpack-dev-server` to let you see your changes live, and has the option to publish to HTML or PDF.
 
-Output Example usage
+Output Example usage 
 --------------
 
 ```javascript
@@ -53,11 +54,25 @@ const run = async () => {
   process.exit(0)
 }
 
+
+// Use the function in an existing promise chain
+Promise.resolve( 'something' )
+.then( result => {
+  return doSomething( result )
+} )
+.then( result => {
+  // Because async functions are promises under the hood we can treat the run function as a promise
+  return run()
+} )
+.catch( handleErrors )
+
+// Usage in try/catch block
 try {
   run()
 } catch (error) {
   console.error(error)
 }
+
 ```
 
 ---
