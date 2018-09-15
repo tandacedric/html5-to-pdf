@@ -15,8 +15,7 @@ deploy:
   provider: npm
   email: thepeterdemartini@gmail.com
   api_key:
-    secure: VNF2ar2dX87GOnMaP+PUOsB7dRt7eoOmOsA2F3ML1IIq92Mafxtub99B7On6IWemtUBMSXhml6uT1uYxJtuJrvonKxbdlNNfrBzIqCduJCKxnRLDECPGNkBjeXfIRMWv2ibhaK9yzz8tqybq8ave6kxdz1GROGONoXH1Hhwrcdo=
-  skip_cleanup: true
+    secure: "iFlKrNUI5MbONm3oMJr+YQIZ+am5mPFRBSMwDstmI8Yod+2uWsZkQ+D35g8osGHr/A2/889/tOHGl/QS4adENO0Ui6mWyqQq+H97zsB555Wy5nIUmE6i++AWrm+w+GH3lz6TCTVyGKWmXp/cFZ7Qxxsge0Z09EON1PsKgb6Fgbg="
   on:
     tags: true
     repo: peterdemartini/html5-to-pdf
