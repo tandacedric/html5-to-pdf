@@ -77,6 +77,10 @@ try {
 
 ---
 
+Typescript
+---
+A Typescript definition for this library can be obtained by installing [@types/html5-to-pdf](https://www.npmjs.com/package/@types/html5-to-pdf).
+
 Reference:
 ---
 
