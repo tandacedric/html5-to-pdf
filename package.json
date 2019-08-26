@@ -4,11 +4,12 @@
   "description": "HTML5 to PDF converter",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint *.js ./lib/*.js ./examples/*.js"
   },
   "engineStrict": true,
   "engines": {
-    "node": ">= 9.0.0"
+    "node": ">=8.0.0"
   },
   "repository": {
     "type": "git",
