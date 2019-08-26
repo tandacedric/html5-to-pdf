@@ -3,7 +3,8 @@ os:
 - osx
 language: node_js
 node_js:
-- '9'
+- '8'
+- '10'
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start &
@@ -11,6 +12,8 @@ before_script:
 script:
 - ./examples/basic-cli-test.sh
 - ./examples/example.js
+after_success:
+- yarn lint
 deploy:
   provider: npm
   email: thepeterdemartini@gmail.com

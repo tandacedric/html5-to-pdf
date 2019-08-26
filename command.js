@@ -58,8 +58,8 @@ const getOptions = () => {
     .parse(process.argv)
   const inputPath = first(commander.args)
   const outputPath = commander.output
-  if (inputPath == null) {
-    printMissing("Missing input path first argument")
+  if (inputPath == null && commander.templateUrl == null) {
+    printMissing("Missing input path first argument or template-url")
   }
 
   const {

@@ -4,7 +4,6 @@
   "description": "HTML5 to PDF converter",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha",
     "lint": "eslint *.js ./lib/*.js ./examples/*.js"
   },
   "engineStrict": true,
