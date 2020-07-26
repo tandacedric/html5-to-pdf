@@ -11,8 +11,7 @@
         "trailingComma": "all",
         "bracketSpacing": true,
         "semi": false,
-        "printWidth": 80,
-        "parser": "babylon"
+        "printWidth": 80
       }
     ],
     "no-console": 0
