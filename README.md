@@ -48,28 +48,20 @@ const run = async () => {
   await html5ToPDF.start()
   await html5ToPDF.build()
   await html5ToPDF.close()
-  console.log("DONE")
-  process.exit(0)
 }
 
+(async () => {
+  try {
+    await run()
+    console.log("DONE")
+  } catch (error) {
+    console.error(error)
+    process.exitCode = 1
+  } finally {
+    process.exit();
+  }
+})()
 
-// Use the function in an existing promise chain
-Promise.resolve( 'something' )
-.then( result => {
-  return doSomething( result )
-} )
-.then( result => {
-  // Because async functions are promises under the hood we can treat the run function as a promise
-  return run()
-} )
-.catch( handleErrors )
-
-// Usage in try/catch block
-try {
-  run()
-} catch (error) {
-  console.error(error)
-}
 
 ```
 
