@@ -20,7 +20,7 @@ const printMissing = message => {
 
 const die = error => {
   if (!error) return process.exit(0)
-  console.error("Error:", error)
+  console.error(error.stack)
   process.exit(1)
 }
 
@@ -36,7 +36,6 @@ const getOptions = () => {
       "--landscape",
       "If set it will change orientation to landscape from portriat",
     )
-    .option("--margin-type", "The type of margin to use")
     .option("--print-background", "Whether to print CSS backgrounds")
     .option(
       "-t --template [template]",
