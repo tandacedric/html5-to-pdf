@@ -4,7 +4,7 @@
 
 [![Dependency status](http://img.shields.io/david/peterdemartini/html5-to-pdf.svg?style=flat)](https://david-dm.org/peterdemartini/html5-to-pdf)
 [![devDependency Status](http://img.shields.io/david/dev/peterdemartini/html5-to-pdf.svg?style=flat)](https://david-dm.org/peterdemartini/html5-to-pdf#info=devDependencies)
-[![Build Status](https://travis-ci.com/peterdemartini/html5-to-pdf.svg?branch=master)](https://travis-ci.org/peterdemartini/html5-to-pdf)
+[![Build Status](https://travis-ci.com/peterdemartini/html5-to-pdf.svg?branch=master)](https://travis-ci.com/peterdemartini/html5-to-pdf)
 
 The PDF looks great because it is styled by HTML5 Boilerplate or Bootstrap. What? - Yes! HTML is pushed into the HTML5 template `index.html`. Electron renders the page and saves it to a PDF. You can customize the page by adding custom CSS and JS assets.
 
