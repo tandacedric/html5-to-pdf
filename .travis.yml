@@ -16,7 +16,7 @@ script:
 - ./examples/basic-cli-test.sh
 - ./examples/example.js
 - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-    docker build -t local/html5-to-pdf-example -f examples/Dockerfile . && docker run --rm -i --cap-add=SYS_ADMIN local/html5-to-pdf-example
+    docker build -t local/html5-to-pdf-example -f examples/Dockerfile . && docker run --rm -i --cap-add=SYS_ADMIN local/html5-to-pdf-example;
   fi
 after_success:
 - yarn lint
