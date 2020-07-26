@@ -1,6 +1,6 @@
 {
   "name": "html5-to-pdf",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "HTML5 to PDF converter",
   "main": "lib/index.js",
   "scripts": {
