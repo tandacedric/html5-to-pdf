@@ -14,15 +14,20 @@ const run = async () => {
     ],
   })
 
-  await html5ToPDF.start().catch(err => console.error(err))
-  await html5ToPDF.build().catch(err => console.error(err))
-  await html5ToPDF.close().catch(err => console.error(err))
-  console.log("DONE")
-  process.exit(0)
+  await html5ToPDF.start()
+  await html5ToPDF.build()
+  await html5ToPDF.close()
 }
 
-try {
-  run()
-} catch (error) {
-  console.error(error)
-}
+(async () => {
+  try {
+    await run()
+    console.log("DONE");
+  } catch (error) {
+    console.error(error)
+    process.exitCode = 1
+  } finally {
+    process.exit()
+  }
+})();
+
