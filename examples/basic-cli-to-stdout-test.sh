@@ -27,7 +27,6 @@ main() {
   $project_dir/command.js \
     --template-path $template_dir \
     --include $assets_dir/basic.css,$assets_dir/custom-margin.css \
-    --margin-type 2 \
     --render-delay 500 \
     $assets_dir/basic.html > "$output_file" || exit 1
 
