@@ -19,15 +19,14 @@ const run = async () => {
   await html5ToPDF.close()
 }
 
-(async () => {
+;(async () => {
   try {
     await run()
-    console.log("DONE");
+    console.log("DONE")
   } catch (error) {
     console.error(error)
     process.exitCode = 1
   } finally {
     process.exit()
   }
-})();
-
+})()

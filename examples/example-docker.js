@@ -22,7 +22,7 @@ const run = async () => {
   await html5ToPDF.close()
 }
 
-(async () => {
+;(async () => {
   try {
     await run()
     console.log("DONE")
@@ -33,4 +33,3 @@ const run = async () => {
     process.exit()
   }
 })()
-

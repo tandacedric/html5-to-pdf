@@ -10,7 +10,7 @@ const castArray = require("lodash/castArray")
 const { version } = require("./package.json")
 const HTML5ToPDF = require("./lib")
 
-const printMissing = message => {
+const printMissing = (message) => {
   commander.outputHelp()
   if (message) {
     console.error(colors.red(message))
@@ -18,7 +18,7 @@ const printMissing = message => {
   process.exit(1)
 }
 
-const die = error => {
+const die = (error) => {
   if (!error) return process.exit(0)
   console.error(error.stack)
   process.exit(1)
@@ -101,7 +101,7 @@ const run = async () => {
   }
 }
 
-(async () => {
+;(async () => {
   try {
     await run()
   } catch (err) {
