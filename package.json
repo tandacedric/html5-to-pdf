@@ -1,7 +1,7 @@
 {
   "name": "html5-to-pdf",
-  "version": "4.0.1",
-  "description": "HTML5 to PDF converter",
+  "version": "1.0.1",
+  "description": "HTML5 to PDF converter for httc base to peterdemartini/html5-to-pdf 4.0.1",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint *.js ./lib/*.js ./examples/*.js"
